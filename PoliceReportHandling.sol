@@ -4,7 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract PoliceContract {
     
-    struct Report {
+    struct Reporter {
         address victim;
         bytes32 firstName;
         bytes32 lastName;
@@ -17,8 +17,10 @@ contract PoliceContract {
         string state;
         bytes32 zipCode;
         string country;
-
-        //claims
+    }
+    
+    struct Claims {
+    //claims
         bytes32 eventType;
         string eventDescription;
         uint[2] timeIncident;
