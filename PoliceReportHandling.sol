@@ -5,24 +5,30 @@ pragma solidity >=0.7.0 <0.9.0;
 contract PoliceContract {
     
     struct Report {
-        string name;
+        address victim;
+        bytes32 firstName;
+        bytes32 lastName;
+        bytes32 gender;
+        bytes32 DOB;
+        bytes32 phoneNumber;
+        bytes32 race;
         string homeAddress;
         string city;
         string state;
-        uint zipcode;
-        uint phoneNumber;
-        uint[3] DOB;
+        bytes32 zipCode;
+        string country;
 
         //claims
-        string[] itemsLost;
+        bytes32 eventType;
         string eventDescription;
-        string natureComplaint;
-        uint[3] timeIncident;
+        uint[2] timeIncident;
         uint[3] dateIncident;
         uint[3] timeReport;
         uint[3] dateReport;
-
     }
+
+
+}
 
     Report[] public reports;    
     mapping (uint => address) public reportToOwner;
