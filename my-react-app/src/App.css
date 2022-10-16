@@ -1,0 +1,297 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin:0;
+  height:240vh;
+  background: linear-gradient(140deg, rgba(2,0,36,1) 0%, rgba(38,9,121,1) 51%, rgba(119,183,251,1) 100%);
+  color:#ffffff;
+}
+
+#top-bar {
+  position:fixed;
+  width:100%;
+  height:auto;
+  margin-top:0px;
+  font-family:Inter,sans-serif;
+  font-weight: 1000;
+  z-index:1;   
+
+}
+
+#headline {
+  margin:0 0;
+  font-family:Inter,sans-serif;
+  font-weight:900;
+}
+
+#subliminal {
+  padding-top:25px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-left:auto;
+  margin-right:auto;
+  width:60%;
+
+}
+
+#right-nav {
+  float:right;
+  margin-right:80px;
+  margin-top:10px;
+  font-size:1.5rem;
+  
+}
+
+#left-title {
+  font-size:2rem;
+}
+
+li {
+  display:inline;
+}
+
+
+
+#intro {
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0px;
+  width:70%;
+  font-size:4rem;
+  text-align:center;
+  position:relative;
+  padding-top:200px;
+}
+
+#body-section {
+  width:70%;
+  height:500px;
+  margin:0 auto;
+  background-color: rgb(0,0,0,.4);
+  border-radius: 20px;
+  margin-top:50px;
+  
+}
+
+#icons {
+  min-width: 230px;
+  width:30%;
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:60px;
+
+}
+
+#document {
+  width:95px;
+  height:50px;
+  color:white;
+  opacity:45%;
+  
+}
+
+#github {
+  width:95px;
+  height:50px;
+  color:white;
+  opacity:45%;
+  float:right;
+}
+
+#github:hover {
+  opacity:80%;
+}
+
+#document:hover {
+  opacity:80%;
+}
+
+#form {
+  width:70%;
+  height:auto;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:20px;
+  background-color: rgb(0,0,0,.4);
+  border-radius: 20px;
+  padding-bottom:25px;
+  
+}
+
+#info {
+  width:100%;
+  height:auto;
+  z-index: 1;
+  opacity:100%;
+  padding-top:5px;
+}
+
+#submit-head {
+  text-align:center;
+  font-family:Inter,sans-serif;
+}
+
+#button {
+  width:10px;
+  height:5px;
+}
+
+input {
+  border-radius: 5px;
+  text-align: center;
+  margin-right:3px;
+  margin-left:3px;
+  margin-top:3px;
+  margin-bottom:3px;
+}
+
+#first, #second, #third {
+  text-align: center;
+}
+
+#TOI, #DOI, #birth {
+  display:block;
+  padding-left:5px;
+}
+
+#time, #date, #DOB {
+  margin-left:5px;
+}
+
+button {
+  display:block;
+  width:auto;
+  height:35px;
+  margin-top:5px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  font-size:1rem;
+  
+}
+
+fieldset {
+  border:none;
+}
+
+form:hover {
+  opacity:100%;
+}
+
+form {
+  width:60%;
+  margin:0 auto;
+}
+
+#TOI {
+  padding-top:10px;
+}
+
+#support {
+  padding-top:30px;
+  font-family:Inter,sans-serif;
+  text-align: center;
+  font-size:1.8rem;
+  font-weight:900;
+}
+
+#support2 {
+  font-family:Inter,sans-serif;
+  text-align: center;
+  font-size:1.8rem;
+  font-weight:900;
+}
+
+#top, #bottom {
+  display:inline-block;
+  width:100%;
+  height:auto;
+}
+
+#top-left {
+  margin-left:-15px;
+  width:48%;
+}
+
+#top-right {
+  position:relative;
+  top:-100px;
+  float:right;
+  width:48%;
+}
+
+#bottom-left {
+  position:relative;
+  width:45%;
+  top:-120px;
+  margin-left:70px;
+}
+
+#bottom-right {
+  position:relative;
+  top:-340px;
+  float:right;
+  right:140px;
+
+  width:45%;
+
+}
+
+
+
+#solana {
+  width:200px;
+  height:50px;
+  margin-left:100px;
+  margin-top:45px;
+}
+
+#polygon {
+  width:250px;
+  float:right;
+  margin-bottom:40px;
+  margin-right:100px;
+}
+
+
+#ethereum {
+  width:200px;
+}
+
+#bnb {
+  width:150px;
+  height:auto;
+  float:right;
+  padding-top:35px;
+}
+
+img {
+  display:inline-block;
+}
+
+
+
+@media only screen and (max-width:570px) {
+  #polygon {
+    position:relative;
+    top:70px;
+    left:60px;
+  }
+  #solana {
+    position:relative;
+    left:-10px;
+  }
+
+  #body-section {
+    height:650px;
+  }
+
+  #bnb {
+    position:relative;
+    top:170px;
+    left:50px;
+  }
+}
