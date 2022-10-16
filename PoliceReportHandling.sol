@@ -16,10 +16,10 @@ contract PoliceContract {
     struct Claim {
         string eventType;
         string eventDescription;
-        uint[2] timeIncident;
-        uint[3] dateIncident;
-        uint[2] timeReport;
-        uint[3] dateReport;
+        string timeIncident;
+        string dateIncident;
+        string timeReport;
+        string dateReport;
     }
 
     //personal info for person submitting the report
@@ -54,10 +54,10 @@ contract PoliceContract {
 
     function _newClaim(string memory _eventType,
         string memory _eventDescription,
-        uint[2] memory _timeIncident,
-        uint[3] memory _dateIncident,
-        uint[2] memory _timeReport,
-        uint[3] memory _dateReport) public {
+        string memory _timeIncident,
+        string memory _dateIncident,
+        string memory _timeReport,
+        string memory _dateReport) public {
         Claim memory claimHere= Claim(_eventType,_eventDescription,_timeIncident,_dateIncident,_timeReport,_dateReport);
         newClaim = claimHere;
     }
