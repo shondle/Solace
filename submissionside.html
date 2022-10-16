@@ -17,22 +17,22 @@
       }
 
       //submit info
-      function newInfo(string city, string state, string zipCode, string country) public {
+      function newInfo(city, state, zipCode, country) {
         return reports.methods.reports(city, state, zipCode, country).send()
       }
     
       //submit claim info
-      function newClaim(string eventType,
-        string eventDescription,
-        string timeIncident,
-        string dateIncident,
-        string timeReport,
-        string dateReport) {
+      function newClaim(eventType,
+        eventDescription,
+        timeIncident,
+        dateIncident,
+        timeReport,
+        dateReport) {
         return reports.methods._newClaim(eventType, eventDescription, timeIncident, dateIncident, timeReport, dateReport).send();
       }
 
       //submit private info
-      function privInfo(firstName, lastName, gender, DOB, phoneNumber, race) public {
+      function privInfo(firstName, lastName, gender, DOB, phoneNumber, race) {
         return reports.methods.privInfo(firstName, lastName, gender, DOB, phoneNumber, race).send();
       }
 
