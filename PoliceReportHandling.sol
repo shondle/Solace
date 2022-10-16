@@ -4,6 +4,7 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract PoliceContract {
     
+    //struct for background info of victim
     struct Info {
         address victim;
         bytes32 firstName;
@@ -19,6 +20,7 @@ contract PoliceContract {
         string country;
     }
     
+    //incident descriptions in claim
     struct Claim {
         bytes32 eventType;
         string eventDescription;
@@ -28,6 +30,18 @@ contract PoliceContract {
         uint[3] dateReport;
     }
 
+    //personal info for person submitting the report
+    struct PrivInfo {
+        bytes32 firstName;
+        bytes32 lastName;
+        bytes32 gender;
+        bytes32 DOB;
+        bytes32 phoneNumber;
+        bytes32 race;
+        string homeAddress;
+    }
+
+    //all data related to the report
     struct Report {
         Info info;
         Claim claim;
@@ -36,14 +50,14 @@ contract PoliceContract {
 
     //initial variables
     Info newInfo;
+    PrivInfo priv;
     Claim newClaim;
     Report[] reports;    
     mapping (uint => address) reportToOwner;
-    address owner; //initialize this
 
     //creates new info
     function _newInfo(address _victim, bytes32 _firstName, bytes32 _lastName, bytes32 _gender, bytes32 _DOB, bytes32 _phoneNumber, bytes32 _race, string memory _homeAddress, string memory _city, string memory _state, bytes32 _zipCode, string memory _country) public {
-        Info memory infoHere = Info(_firstName, _lastName, _gender, _DOB, _phoneNumber, _race, _homeAddress, _victim, _city, _state, _zipCode, _country);
+        Info memory infoHere = Info(_victim, _firstName, _lastName, _gender, _DOB, _phoneNumber, _race, _homeAddress, _city, _state, _zipCode, _country);
         newInfo = infoHere;
     }
 
@@ -57,8 +71,12 @@ contract PoliceContract {
         newClaim = claimHere;
     }
 
+    function privInfo(bytes32 _firstName, bytes32 _lastName, bytes32 _gender, bytes32 _DOB, bytes32 _phoneNumber, bytes32 _race, string memory _homeAddress) public {
+        priv = PrivInfo(_firstName, _lastName, _gender, _DOB, _phoneNumber, _race, _homeAddress);
+    }
+
     function newReport() public {
-        Report memory newerReport = Report(newInfo, newClaim);
+        Report memory newerReport = Report(newInfo, newClaim, priv);
         reports.push(newerReport);
         uint id = reports.length-1;
         reportToOwner[id] = msg.sender;
