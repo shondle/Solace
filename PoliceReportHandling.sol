@@ -70,15 +70,16 @@ contract PoliceContract {
     function newReport() public {
         Report memory newerReport = Report(newInfo, newClaim, priv);
         reports.push(newerReport);
-        uint id = reports.length-1;
+        id = reports.length-1;
         reportToOwner[id] = msg.sender;
     }
     
-    function submitReport(Info calldata i, Claim calldata c, PrivReport calldata p) public {
-        Report memory newReport = Report(i, c, p);
-        reports.push(newReport);
+    function submitReport(Info calldata i, Claim calldata c, PrivInfo calldata p) public returns (uint256){
+        Report memory nReport = Report(i, c, p);
+        reports.push(nReport);
         id++;
         reportToOwner[id] = msg.sender;
+        return id;
       }
         
 }
