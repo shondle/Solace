@@ -13,7 +13,7 @@ Binance address (deployed with Smart Chain Devnet)- 0xfA91A70901DbBF34127Cd1D0Bb
 
 //Sample input for new info function
 
-"Austin", "Texas", "77045", "United States"
+"Austin", "Texas", "78705", "United States"
 
 //Sample input for new claim function
 
