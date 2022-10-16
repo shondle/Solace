@@ -58,7 +58,7 @@ contract PoliceContract {
         string memory _dateIncident,
         string memory _timeReport,
         string memory _dateReport) public {
-        Claim memory claimHere= Claim(_eventType,_eventDescription,_timeIncident,_dateIncident,_timeReport,_dateReport);
+        Claim memory claimHere= Claim(_eventType, _eventDescription, _timeIncident, _dateIncident, _timeReport, _dateReport);
         newClaim = claimHere;
     }
 
