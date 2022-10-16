@@ -43,7 +43,7 @@
 
       //find the address of who submitted a certain report contract
       function reportToOwner(id) {
-          return reports.methods.reportToOwner(id).call()
+          return reports.methods.reportToOwner(id).send()
       }
 
       window.addEventListener('load', function() {
