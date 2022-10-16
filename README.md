@@ -1,1 +1,4 @@
 # HackTXProject
+
+solana address - 0xbDf2234cb45896C2c7FD7375a7075385Ed3886C0
+binance address- 0xfA91A70901DbBF34127Cd1D0Bb2cDeeEF8fb7C2A
