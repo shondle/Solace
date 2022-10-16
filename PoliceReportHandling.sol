@@ -42,7 +42,7 @@ contract PoliceContract {
     address owner; //initialize this
 
     //creates new info
-    function _newInfo(address _victim, string memory _city, string memory _state, bytes32 _zipCode, string memory _country) public {
+    function _newInfo(address _victim, bytes32 _firstName, bytes32 _lastName, bytes32 _gender, bytes32 _DOB, bytes32 _phoneNumber, bytes32 _race, string _homeAddress, string memory _city, string memory _state, bytes32 _zipCode, string memory _country) public {
         Info memory infoHere = Info(_victim, _city, _state, _zipCode, _country);
         newInfo = infoHere;
     }
