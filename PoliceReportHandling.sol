@@ -18,7 +18,7 @@ contract PoliceContract {
         string eventDescription;
         uint[2] timeIncident;
         uint[3] dateIncident;
-        uint[3] timeReport;
+        uint[2] timeReport;
         uint[3] dateReport;
     }
 
