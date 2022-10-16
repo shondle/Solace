@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <!---
+    <script>
+      var reports;
+      function startApp() {
+        var reportAddress = "YOUR_CONTRACT_ADDRESS";
+        reports = new web3js.eth.Contract(reportABI, reportAddress);
+      }
+      
+      //get report from id
+      function getReport(id) {
+        return reports.methods.reports(id).send()
+      }
+
+      // Call the function and do something with the result:
+      getZombieDetails(0)
+      .then(function(result) {
+        console.log("Report 0: " + JSON.stringify(result));
+      });
+
+      //find the address of who submitted a certain report contract
+      function reportToOwner(id) {
+          return reports.methods.reportToOwner(id).send()
+      }
+
+      window.addEventListener('load', function() {
+
+        // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+        if (typeof web3 !== 'undefined') {
+          // Use Mist/MetaMask's provider
+          web3js = new Web3(web3.currentProvider);
+        } else {
+          // Handle the case where the user doesn't have Metamask installed
+          // Probably show them a message prompting them to install Metamask
+        }
+
+        // Now you can start your app & access web3 freely:
+        startApp()
+
+      })
+    </script>
+*/
+  -->
+<script>
+  window.ethereum.enable()
+var provider = new ethers.providers.Web3Provider(web3.currentProvider, 'goerli');
+
+var contractAddress = "0x4CE1C756E693f174F7d9aAB21319764eB9e3CA13";
+let contractABI = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_eventType",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_eventDescription",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_timeIncident",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_dateIncident",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_timeReport",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_dateReport",
+				"type": "string"
+			}
+		],
+		"name": "_newClaim",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_city",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_state",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_zipCode",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_country",
+				"type": "string"
+			}
+		],
+		"name": "_newInfo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "newClaim",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "eventType",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "eventDescription",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "timeIncident",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "dateIncident",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "timeReport",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "dateReport",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "newInfo",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "city",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "state",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "zipCode",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "country",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "newReport",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "priv",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "gender",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "DOB",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "phoneNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "race",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_firstName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_lastName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_gender",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_DOB",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_phoneNumber",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_race",
+				"type": "string"
+			}
+		],
+		"name": "privInfo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "reportToOwner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "reports",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "city",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "state",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "zipCode",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "country",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PoliceContract.Info",
+				"name": "info",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "eventType",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "eventDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "timeIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "dateIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "timeReport",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "dateReport",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PoliceContract.Claim",
+				"name": "claim",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "firstName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "gender",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "DOB",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "phoneNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "race",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PoliceContract.PrivInfo",
+				"name": "priv",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "city",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "state",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "zipCode",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "country",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PoliceContract.Info",
+				"name": "i",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "eventType",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "eventDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "timeIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "dateIncident",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "timeReport",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "dateReport",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PoliceContract.Claim",
+				"name": "c",
+				"type": "tuple"
+			},
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "firstName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "gender",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "DOB",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "phoneNumber",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "race",
+						"type": "string"
+					}
+				],
+				"internalType": "struct PoliceContract.PrivInfo",
+				"name": "p",
+				"type": "tuple"
+			}
+		],
+		"name": "submitReport",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
+
+provider.listAccounts().then(function (accounts) {
+  signer = provider.getSigner(accounts[0]);
+  ContractInstancee = new ethers.Contract(contractAddress, contractABI, signer);
+})
+
+async function Test() {
+  TestPromise = ContractInstance.submitReport(["c", "c", "c", "c"], ["c", "c", "c", "c", "c", "c"], ["c", "c", "c", "c", "c", "c"]);
+  var output = await TestPromise;
+  alert("Current Contract Balance: " + output);
+}
+
+</script>
+
+    <title>Solace</title>
+
+  </head>
+  <body>
+    <div id="root">
+
+      <button type="button" onclick="test()">Click Me!</button>
+ 
+    </div>
+  </body>
+</html>
