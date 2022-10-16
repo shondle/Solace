@@ -8,13 +8,13 @@ contract PoliceContract {
     struct Info {
         string city;
         string state;
-        bytes32 zipCode;
+        string zipCode;
         string country;
     }
     
     //incident descriptions in claim
     struct Claim {
-        bytes32 eventType;
+        string eventType;
         string eventDescription;
         uint[2] timeIncident;
         uint[3] dateIncident;
@@ -24,12 +24,12 @@ contract PoliceContract {
 
     //personal info for person submitting the report
     struct PrivInfo {
-        bytes32 firstName;
-        bytes32 lastName;
-        bytes32 gender;
-        bytes32 DOB;
-        bytes32 phoneNumber;
-        bytes32 race;
+        string firstName;
+        string lastName;
+        string gender;
+        string DOB;
+        string phoneNumber;
+        string race;
     }
 
     //all data related to the report
@@ -40,19 +40,19 @@ contract PoliceContract {
     }
 
     //initial variables
-    Info newInfo;
-    PrivInfo priv;
-    Claim newClaim;
-    Report[] reports;    
-    mapping (uint => address) reportToOwner;
+    Info public newInfo;
+    PrivInfo public priv;
+    Claim public newClaim;
+    Report[] public reports;
+    mapping (uint => address) public reportToOwner;
 
     //creates new info
-    function _newInfo(string memory _city, string memory _state, bytes32 _zipCode, string memory _country) public {
+    function _newInfo(string memory _city, string memory _state, string memory _zipCode, string memory _country) public {
         Info memory infoHere = Info(_city, _state, _zipCode, _country);
         newInfo = infoHere;
     }
 
-    function _newClaim(bytes32 _eventType,
+    function _newClaim(string memory _eventType,
         string memory _eventDescription,
         uint[2] memory _timeIncident,
         uint[3] memory _dateIncident,
@@ -62,7 +62,7 @@ contract PoliceContract {
         newClaim = claimHere;
     }
 
-    function privInfo(bytes32 _firstName, bytes32 _lastName, bytes32 _gender, bytes32 _DOB, bytes32 _phoneNumber, bytes32 _race) public {
+    function privInfo(string memory _firstName, string memory _lastName, string memory _gender, string memory _DOB, string memory _phoneNumber, string memory _race) public {
         priv = PrivInfo(_firstName, _lastName, _gender, _DOB, _phoneNumber, _race);
     }
 
