@@ -44,6 +44,7 @@ contract PoliceContract {
     PrivInfo public priv;
     Claim public newClaim;
     Report[] public reports;
+    uint256 internal id;
     mapping (uint => address) public reportToOwner;
 
     //creates new info
@@ -72,4 +73,12 @@ contract PoliceContract {
         uint id = reports.length-1;
         reportToOwner[id] = msg.sender;
     }
+    
+    function submitReport(Info calldata i, Claim calldata c, PrivReport calldata p) public {
+        Report memory newReport = Report(i, c, p);
+        reports.push(newReport);
+        id++;
+        reportToOwner[id] = msg.sender;
+      }
+        
 }
