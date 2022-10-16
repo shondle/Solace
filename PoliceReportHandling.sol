@@ -6,13 +6,6 @@ contract PoliceContract {
     
     //struct for background info of victim
     struct Info {
-        address victim;
-        bytes32 firstName;
-        bytes32 lastName;
-        bytes32 gender;
-        bytes32 DOB;
-        bytes32 phoneNumber;
-        bytes32 race;
         string city;
         string state;
         bytes32 zipCode;
@@ -37,7 +30,6 @@ contract PoliceContract {
         bytes32 DOB;
         bytes32 phoneNumber;
         bytes32 race;
-        string homeAddress;
     }
 
     //all data related to the report
@@ -55,8 +47,8 @@ contract PoliceContract {
     mapping (uint => address) reportToOwner;
 
     //creates new info
-    function _newInfo(address _victim, bytes32 _firstName, bytes32 _lastName, bytes32 _gender, bytes32 _DOB, bytes32 _phoneNumber, bytes32 _race, string memory _city, string memory _state, bytes32 _zipCode, string memory _country) public {
-        Info memory infoHere = Info(_victim, _firstName, _lastName, _gender, _DOB, _phoneNumber, _race, _city, _state, _zipCode, _country);
+    function _newInfo(string memory _city, string memory _state, bytes32 _zipCode, string memory _country) public {
+        Info memory infoHere = Info(_city, _state, _zipCode, _country);
         newInfo = infoHere;
     }
 
@@ -70,8 +62,8 @@ contract PoliceContract {
         newClaim = claimHere;
     }
 
-    function privInfo(bytes32 _firstName, bytes32 _lastName, bytes32 _gender, bytes32 _DOB, bytes32 _phoneNumber, bytes32 _race, string memory _homeAddress) public {
-        priv = PrivInfo(_firstName, _lastName, _gender, _DOB, _phoneNumber, _race, _homeAddress);
+    function privInfo(bytes32 _firstName, bytes32 _lastName, bytes32 _gender, bytes32 _DOB, bytes32 _phoneNumber, bytes32 _race) public {
+        priv = PrivInfo(_firstName, _lastName, _gender, _DOB, _phoneNumber, _race);
     }
 
     function newReport() public {
