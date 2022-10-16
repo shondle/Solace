@@ -18,7 +18,7 @@
       
       //get report from id
       function getReport(id) {
-        return reports.methods.reports(id).call()
+        return reports.methods.reports(id).send()
       }
 
       // Call the function and do something with the result:
@@ -29,7 +29,7 @@
 
       //find the address of who submitted a certain report contract
       function reportToOwner(id) {
-          return reports.methods.reportToOwner(id).call()
+          return reports.methods.reportToOwner(id).send()
       }
 
       window.addEventListener('load', function() {
