@@ -6,6 +6,13 @@ contract PoliceContract {
     
     struct Info {
         address victim;
+        bytes32 firstName;
+        bytes32 lastName;
+        bytes32 gender;
+        bytes32 DOB;
+        bytes32 phoneNumber;
+        bytes32 race;
+        string homeAddress;
         string city;
         string state;
         bytes32 zipCode;
