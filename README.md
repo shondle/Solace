@@ -1,15 +1,19 @@
 # Solace
-The new way to submit immutable reports that are saved on the blockchain. 
 
+Solace is a decentralized application (dApp) that facilitates anonymous incident reports. By leveraging blockchain's transaction finality and scalability, Solace democratizes tamper-proof reporting. Furthermore, Solace's reliance on an immutable peer-to-peer network mandates accountability from all parties involved: namely authoritative figures.
+
+**Winner of HackTX 2022 Hedera Chain  and BNB Chain Honorable Mention
 
 **Replace each address in respective Act.js source code (to use on of either networks)-**
 
-Solana address (deployed with Neon EVM Devnet) - 0xbDf2234cb45896C2c7FD7375a7075385Ed3886C0
+## To Test Solace
 
+Deploy using the following addresses-
+Solana address (deployed with Neon EVM Devnet) - 0xbDf2234cb45896C2c7FD7375a7075385Ed3886C0
 Binance address (deployed with Smart Chain Devnet)- 0xfA91A70901DbBF34127Cd1D0Bb2cDeeEF8fb7C2A
 
 ## Sample Inputs
-**Use the following when deploying Solidity source code. Easiest way is through Remix online IDE**
+**Use the following when deploying Solidity source code, and use these inputs to create a decenentralized report.**
 
 //Sample input for new info function
 
