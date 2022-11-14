@@ -15,7 +15,9 @@ Solace is a decentralized application (dApp) that facilitates incident reports. 
 ## To Test Solace
 
 Deploy using the following addresses-
+<br>
 Solana address (deployed with Neon EVM Devnet) - 0xbDf2234cb45896C2c7FD7375a7075385Ed3886C0
+<br>
 Binance address (deployed with Smart Chain Devnet)- 0xfA91A70901DbBF34127Cd1D0Bb2cDeeEF8fb7C2A
 
 ## Sample Inputs
