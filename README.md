@@ -4,8 +4,6 @@ Solace is a decentralized application (dApp) that facilitates anonymous incident
 
 **Winner of HackTX 2022 Hedera Chain First Place and BNB Chain Honorable Mention**
 
-**Replace each address in respective Act.js source code (to use on of either networks)-**
-
 ## To Test Solace
 
 Deploy using the following addresses-
