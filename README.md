@@ -2,7 +2,7 @@
 
 Solace is a decentralized application (dApp) that facilitates anonymous incident reports. By leveraging blockchain's transaction finality and scalability, Solace democratizes tamper-proof reporting. Furthermore, Solace's reliance on an immutable peer-to-peer network mandates accountability from all parties involved: namely authoritative figures.
 
-**Winner of HackTX 2022 Hedera Chain  and BNB Chain Honorable Mention
+**Winner of HackTX 2022 Hedera Chain  and BNB Chain Honorable Mention**
 
 **Replace each address in respective Act.js source code (to use on of either networks)-**
 
